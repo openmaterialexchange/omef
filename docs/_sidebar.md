@@ -2,4 +2,5 @@
 
 * [Home](/)
 * [Whitepaper](whitepaper.md)
-* [License](#license)
+* [Models](models.md)
+* [License](license.md)
