@@ -1,0 +1,39 @@
+{
+  "client": "string",
+  "lab": "string",
+  "testStandard": "string",
+  "acceptance": "string",
+  "solution": "string",
+  "duration": "number",
+  "temperature": "number",
+  "temperatureTolerance": "number",
+  "pressure": "number",
+  "gasMixture": "string",
+  "solutionPH": {
+    "before": "number",
+    "after": "number",
+    "final": "number"
+  },
+  "h2sConcentration": {
+    "initial": "number",
+    "final": "number"
+  },
+  "stressMethod": "string",
+  "yeildStrengthType": "string",
+  "yeildStrengthValue": "number",
+  "yeildStrengthPercentage": "number",
+  "appliedLoad": "number",
+  "elements": [{
+    "position": "string",
+    "orientation": "string",
+    "specimenId": "string",
+    "specimenLength": "number",
+    "specimenWidth": "number",
+    "specimenThickness": "number",
+    "magnification": "number",
+    "evaluationOfCraks": "string",
+    "files": ["string"]
+  }],
+  "notes": "string",
+  "result": "string"
+}

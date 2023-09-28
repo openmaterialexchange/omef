@@ -1,0 +1,27 @@
+{
+  "client": "string",
+  "lab": "string",
+  "testStandard": "string",
+  "acceptance": "string",
+  "surfaceCondition": "string",
+  "examinedSurface": ["string"],
+  "elements": [{
+    "notchesLocation": "string",
+    "width": "number",
+    "length": "number",
+    "depth": "number",
+    "depthUnit": "string"
+  }],
+  "result": "string",
+  "notes": "string",
+  "overallQuantityInspected": "number",
+  "quantityInspected": "number",
+  "pieceIdentification": "string",
+  "examinationConditions": {
+    "0": {
+      "file": "string",
+      "value": "string"
+    }
+  },
+  "file": "string"
+}

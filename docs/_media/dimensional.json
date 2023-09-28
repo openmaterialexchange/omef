@@ -1,0 +1,175 @@
+{
+  "client": "string",
+  "lab": "string",
+  "elements": [{
+    "productId": "string",
+    "file": "string",
+    "externalDiameter": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "internalDiameter": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "thickness": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "outOfRoundness": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "straightness": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "eccentricity": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "squareness": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "weldFLash": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "weldFlashOutside": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    },
+    "length": "number",
+    "weight": "number",
+    "bevelAngle": "number",
+    "bevelRootFace": "number",
+    "depthOfGroove": "number",
+    "radialOffset": "number",
+    "linearWeight": "number",
+    "peaking": {
+      "body": "number",
+      "leftEnd": "number",
+      "rightEnd": "number"
+    }
+  }],
+  "acceptanceCriteria": {
+    "externalDiameter": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "internalDiameter": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "thickness": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "outOfRoundness": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "straightness": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "eccentricity": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "squareness": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "weldFLash": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "weldFlashOutside": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "length": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "weight": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "bevelAngle": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "bevelRootFace": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "depthOfGroove": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "radialOffset": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "linearWeight": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    },
+    "peaking": {
+      "nominal": "number",
+      "toleranceMinus": "number",
+      "tolerancePlus": "number"
+    }
+  },
+  "acceptance": "string",
+  "units": {
+    "externalDiameter": "string",
+    "internalDiameter": "string",
+    "thickness": "string",
+    "outOfRoundness": "string",
+    "straightness": "string",
+    "eccentricity": "string",
+    "squareness": "string",
+    "weldFLash": "string",
+    "weldFlashOutside": "string",
+    "length": "string",
+    "weight": "string",
+    "bevelAngle": "string",
+    "bevelRootFace": "string",
+    "depthOfGroove": "string",
+    "radialOffset": "string",
+    "linearWeight": "string",
+    "peaking": "string"
+  },
+  "file": "string",
+  "notes": "string",
+  "result": "string"
+}

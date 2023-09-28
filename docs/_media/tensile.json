@@ -1,0 +1,44 @@
+{
+  "client": "string",
+  "lab": "string",
+  "fdpt": "boolean",
+  "norm": "string",
+  "grade": "string",
+  "acceptance": "string",
+  "specimen": "string",
+  "testStandard": "string",
+  "elements": [
+    {
+      "position": "string",
+      "specimenId": "string",
+      "fracturAppearance": "string",
+      "dimensionX": "number",
+      "dimensionY": "number",
+      "gaugeLength": "number",
+      "temperature": "number",
+      "breakPosition": "string",
+      "zone": "string",
+      "orientation": "string",
+      "heatTreatedThickness": "number",
+      "boltDiameter": "string",
+      "rp": "number",
+      "rm": "number",
+      "a": "number",
+      "reductionOfArea": "number",
+      "uniformElongation": "number",
+      "requirements": {
+        "yeldMin": "number",
+        "yeldMax": "number",
+        "tensMin": "number",
+        "tensMax": "number",
+        "elongation": "number",
+        "reductionOfArea": "number",
+        "yeildTensileRatio": "number",
+        "uniformElongationMin": "number"
+      }
+    }
+  ],
+  "notes": "string",
+  "files": ["string"],
+  "result": "string"
+}

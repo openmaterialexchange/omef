@@ -1,0 +1,39 @@
+{
+  "client": "string",
+  "lab": "string",
+  "testStandard": "string",
+  "acceptance": "string",
+  "surfacePreparation": "string",
+  "surfaceRoughness": "number",
+  "result": "string",
+  "examination": {
+    "speed": "number",
+    "gel": "string",
+    "overlap": "number"
+  },
+  "elements": [{
+    "technique": {
+      "technique": "string",
+      "sensitivity": "string",
+      "volume": ["string"]
+    },
+    "probes": {
+      "waves": "string",
+      "angle": "number",
+      "model": "string",
+      "size": "number",
+      "frequency": "number",
+      "calibration": "string"
+    }
+  }],
+  "overallQuantityInspected": "number",
+  "quantityInspected": "number",
+  "pieceIdentification": "string",
+  "examinationConditions": {
+    "0": {
+      "file": "string",
+      "value": "string"
+    }
+  },
+  "file": "string"
+}

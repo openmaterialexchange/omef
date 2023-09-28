@@ -1,0 +1,40 @@
+{
+  "client": "string",
+  "lab": "string",
+  "fdpt": "boolean",
+  "norm": "string",
+  "grade": "string",
+  "acceptance": "string",
+  "amount": "number",
+  "hardnessTest": "string",
+  "elements": [
+    {
+      "id": "number",
+      "max": "number",
+      "min": "number",
+      "position": "number",
+      "value": "number"
+    }
+  ],
+  "max": "number",
+  "min": "number",
+  "stage": "string",
+  "diameter": "string",
+  "wallThickness": "number",
+  "location": "string",
+  "hardnessLocation": "string",
+  "elementsHistory": [
+    {
+      "differentMax": "number",
+      "differentMin": "number",
+      "metal": "string",
+      "position": "string"
+    }
+  ],
+  "notes": "string",
+  "avgMax": "number",
+  "avgMin": "number",
+  "variation": "number",
+  "specimenId": "string",
+  "result": "string"
+}

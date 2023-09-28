@@ -1,0 +1,28 @@
+{
+  "client": "string",
+  "lab": "string",
+  "fdpt": "boolean",
+  "testStandard": "string",
+  "norm": "string",
+  "grade": "string",
+  "acceptance": "string",
+  "specimenId": "string",
+  "secondSpecimenId": "string",
+  "measurement": "number",
+  "analysis": "string",
+  "zone": "string",
+  "steelMakingProcess": "string",
+  "position": "string",
+  "distance": "number",
+  "elements": [{
+    "min": "number",
+    "max": "number",
+    "value": "number",
+    "bm": "string",
+    "id": "number",
+    "formula": "string",
+    "maxError": "number"
+  }],
+  "notes": "string",
+  "result": "string"
+}

@@ -1,0 +1,90 @@
+{
+  "client": "string",
+  "lab": "string",
+  "fdpt": "boolean",
+  "testStandard": "string",
+  "norm": "string",
+  "grade": "string",
+  "acceptance": "string",
+  "notch": "string",
+  "radius": "string",
+  "width": "number",
+  "height": "number",
+  "outsideDiameter": "number",
+  "thickness": "number",
+  "elements": [
+    {
+      "laboratory": "string",
+      "location": "string",
+      "notchPosition": "string",
+      "position": "string",
+      "orientation": "string",
+      "temperature": "string",
+      "energyJoule1": "number",
+      "lateralExpansion1": "number",
+      "shearArea1": "number",
+      "energyJoule2": "number",
+      "lateralExpansion2": "number",
+      "shearArea2": "number",
+      "energyJoule3": "number",
+      "lateralExpansion3": "number",
+      "shearArea3": "number"
+    }
+  ],
+  "temperature": "number",
+  "unit": "string",
+  "notes": "string",
+  "impactTestCurve": "boolean",
+  "requirements": {
+    "longitudinal": {
+      "average": "number",
+      "averageLateralExpansion": "number",
+      "averageShearArea": "number",
+      "location": "string",
+      "orientation": "string",
+      "single": "number",
+      "singleLateralExpansion": "number",
+      "singleShearArea": "number",
+      "temperature": "number",
+      "unit": "string"
+    },
+    "transverse": {
+      "average": "number",
+      "averageLateralExpansion": "number",
+      "averageShearArea": "number",
+      "location": "string",
+      "orientation": "string",
+      "single": "number",
+      "singleLateralExpansion": "number",
+      "singleShearArea": "number",
+      "temperature": "number",
+      "unit": "string"
+    },
+    "tangential": {
+      "average": "number",
+      "averageLateralExpansion": "number",
+      "averageShearArea": "number",
+      "location": "string",
+      "orientation": "string",
+      "single": "number",
+      "singleLateralExpansion": "number",
+      "singleShearArea": "number",
+      "temperature": "number",
+      "unit": "string"
+    },
+    "radial": {
+      "average": "number",
+      "averageLateralExpansion": "number",
+      "averageShearArea": "number",
+      "location": "string",
+      "orientation": "string",
+      "single": "number",
+      "singleLateralExpansion": "number",
+      "singleShearArea": "number",
+      "temperature": "number",
+      "unit": "string"
+    }
+  },
+  "file": "string",
+  "result": "string"
+}

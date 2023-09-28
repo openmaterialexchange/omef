@@ -1,0 +1,46 @@
+{
+  "client": "string",
+  "lab": "string",
+  "testStandard": "string",
+  "acceptance": "string",
+  "sampleID": "string",
+  "solution": "string",
+  "duration": "number",
+  "temperature": "number",
+  "temperatureTolerance": "number",
+  "pressure": "number",
+  "gasMixture": "string",
+  "solutionPH": {
+    "before": "string",
+    "after": "string",
+    "final": "string"
+  },
+  "h2sConcentration": {
+    "initial": "string",
+    "final": "string"
+  },
+  "requirements": {
+    "crackLengthRatioMax": "number",
+    "crackThicknessRatioMax": "number",
+    "crackSensitivityRatioMax": "number"
+  },
+  "elements": [{
+    "position": "string",
+    "orientation": "string",
+    "specimenId": "string",
+    "specimenLength": "number",
+    "specimenWidth": "number",
+    "specimenThickness": "number",
+    "controlSample": "boolean",
+    "requirements": {
+      "crackLengthRatioMax": "number",
+      "crackThicknessRatioMax": "number",
+      "crackSensitivityRatioMax": "number"
+    },
+    "crackLengthRatio": "number",
+    "crackThicknessRatio": "number",
+    "crackSensitivityRatio": "number"
+  }],
+  "notes": "string",
+  "result": "string"
+}
