@@ -1,3 +1,4 @@
+## Open Material Exchange Format
 
 * [Get Started](/#welcome-to-emof-open-material-echange-format)
 * [Whitepaper](whitepaper.md)
