@@ -3,7 +3,6 @@
   "lab": "string",
   "elements": [{
     "productId": "string",
-    "file": "string",
     "externalDiameter": {
       "body": "number",
       "leftEnd": "number",
@@ -169,7 +168,6 @@
     "linearWeight": "string",
     "peaking": "string"
   },
-  "file": "string",
   "notes": "string",
   "result": "string"
 }

@@ -85,6 +85,5 @@
       "unit": "string"
     }
   },
-  "file": "string",
   "result": "string"
 }

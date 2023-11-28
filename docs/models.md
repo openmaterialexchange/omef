@@ -1,11 +1,9 @@
 # Data Models
 
 ## Chemical Composition
-
-### Model
+### Data Model
 [filename](_media/chemical_composition.json ':include')
-
-### Description
+### Model Description
 | Property name      | Data type        | Required                                                                       | Description                                                                              | Allowed values                                                                                                                                                                                                                                                    |
 |--------------------|------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | client             | string           | yes                                                                            | company name of the company which requested the test                                     |                                                                                                                                                                                                                                                                   |
@@ -14,7 +12,7 @@
 | fdpt               | boolean          | no                                                                             |                                                                                          |                                                                                                                                                                                                                                                                   |
 | norm               | string           | yes                                                                            |                                                                                          |                                                                                                                                                                                                                                                                   |
 | grade              | string           | yes                                                                            |                                                                                          |                                                                                                                                                                                                                                                                   |
-| elements           | array of objects | yes                                                                            | [see element](#gid=144910249)                                                            |                                                                                                                                                                                                                                                                   |
+| elements           | array of objects | yes                                                                            | [See element](#chemelement)                                                              |                                                                                                                                                                                                                                                                   |
 | measurement        | number           | is required in some grades                                                     | maximum section thickness at the time of heat treatment or final product thickness in mm |                                                                                                                                                                                                                                                                   |
 | analysis           | string           | is required in some grades                                                     | type of chemical analysis                                                                | ["Heat", "Product", "Weld joint", "Weld overlay"]                                                                                                                                                                                                                 |
 | zone               | string           | is required if analysis type is "Product"                                      |                                                                                          | ["Weld metal", "HAZ", "Base metal"]                                                                                                                                                                                                                               |
@@ -27,6 +25,7 @@
 | notes              | string           | no                                                                             | some additional notes/remarks about the test lab wants to mention                        |                                                                                                                                                                                                                                                                   |
 | result             | string           | yes                                                                            | test result                                                                              | ["Acceptable", "Not Acceptable"]                                                                                                                                                                                                                                  |
 
+#### <span id="chemelement">Chemical Composition Element</span>
 | Property name | Data type | Required                                          | Description                                                                                                                  | Allowed values                                                                                                                                                  |
 |---------------|-----------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | min           | number    | is required in some grades                        |                                                                                                                              |                                                                                                                                                                 |
@@ -38,36 +37,33 @@
 | maxError      | number    | no                                                | There are some specifications that allow "value" to be higher than "max", in this case the acceptance criteria is "maxError" |
 
 ## Dimensional Test
-
-### Model
+### Data Model
 [filename](_media/dimensional.json ':include')
-
-### Description
+### Model Description
 | Property name      | Data type       | Required | Description                                                       | Allowed values                   |
 |--------------------|-----------------|----------|-------------------------------------------------------------------|----------------------------------|
 | client             | string          | yes      | company name of the company which requested the test              |                                  |
 | lab                | string          | yes      | company name of the laboratory which performs the test            |                                  |
-| elements           | array of object | yes      | [see element](#gid=2020845142)                                    |                                  |
-| acceptanceCriteria | object          | no       | [see acceptance criteria](#gid=1487815395)                        |                                  |
+| elements           | array of object | yes      | [see element](#dimelement)                                        |                                  |
+| acceptanceCriteria | object          | no       | [see acceptance criteria](#dimacceptancecriteria)                 |                                  |
 | acceptance         | string          | no       | itp or qcp name                                                   | ["FP-ITP Rev. 0"]                |
-| units              | object          | yes      | [see units](#gid=1941870506)                                      |                                  |
-| file               | string          | no       | path to the file that is served on steeltrace server              |                                  |
+| units              | object          | yes      | [see units](#dimunits)                                            |                                  |
 | notes              | string          | no       | some additional notes/remarks about the test lab wants to mention |                                  |
 | result             | string          | yes      | test result                                                       | ["Acceptable", "Not Acceptable"] |
 
+#### <span id="dimelement">Dimensional Test Element</span>
 | Property name    | Data type | Required | Description                                          | Allowed values |
 |------------------|-----------|----------|------------------------------------------------------|----------------|
 | productId        | string    | yes      | id of the specimen                                   |                |
-| file             | string    | no       | path to the file that is served on steeltrace server |                |
-| externalDiameter | object    | no       | [see object](#gid=997337937)                         |                |
-| internalDiameter | object    | no       | [see object](#gid=997337937)                         |                |
-| thickness        | object    | no       | [see object](#gid=997337937)                         |                |
-| outOfRoundness   | object    | no       | [see object](#gid=997337937)                         |                |
-| straightness     | object    | no       | [see object](#gid=997337937)                         |                |
-| eccentricity     | object    | no       | [see object](#gid=997337937)                         |                |
-| squareness       | object    | no       | [see object](#gid=997337937)                         |                |
-| weldFLash        | object    | no       | [see object](#gid=997337937)                         |                |
-| weldFlashOutside | object    | no       | [see object](#gid=997337937)                         |                |
+| externalDiameter | object    | no       | [see object](#dimElementProperties)                         |                |
+| internalDiameter | object    | no       | [see object](#dimElementProperties)                         |                |
+| thickness        | object    | no       | [see object](#dimElementProperties)                         |                |
+| outOfRoundness   | object    | no       | [see object](#dimElementProperties)                         |                |
+| straightness     | object    | no       | [see object](#dimElementProperties)                         |                |
+| eccentricity     | object    | no       | [see object](#dimElementProperties)                         |                |
+| squareness       | object    | no       | [see object](#dimElementProperties)                         |                |
+| weldFLash        | object    | no       | [see object](#dimElementProperties)                         |                |
+| weldFlashOutside | object    | no       | [see object](#dimElementProperties)                         |                |
 | length           | number    | no       |                                                      |                |
 | weight           | number    | no       |                                                      |                |
 | bevelAngle       | number    | no       |                                                      |                |
@@ -75,28 +71,28 @@
 | depthOfGroove    | number    | no       |                                                      |                |
 | radialOffset     | number    | no       |                                                      |                |
 | linearWeight     | number    | no       |                                                      |                |
-| peaking          | object    | no       | [see object](#gid=997337937)                         |
-
+| peaking          | object    | no       | [see object](#dimElementProperties)                         |
+#### <span id="dimacceptancecriteria">Dimensional Test Acceptance Criteria</span>
 | Property name    | Data type | Required | Description                  | Allowed values |
 |------------------|-----------|----------|------------------------------|----------------|
-| externalDiameter | object    | no       | [see object](#gid=253326535) |                |
-| internalDiameter | object    | no       | [see object](#gid=253326535) |                |
-| thickness        | object    | no       | [see object](#gid=253326535) |                |
-| outOfRoundness   | object    | no       | [see object](#gid=253326535) |                |
-| straightness     | object    | no       | [see object](#gid=253326535) |                |
-| eccentricity     | object    | no       | [see object](#gid=253326535) |                |
-| squareness       | object    | no       | [see object](#gid=253326535) |                |
-| weldFLash        | object    | no       | [see object](#gid=253326535) |                |
-| weldFlashOutside | object    | no       | [see object](#gid=253326535) |                |
-| length           | object    | no       | [see object](#gid=253326535) |                |
-| weight           | object    | no       | [see object](#gid=253326535) |                |
-| bevelAngle       | object    | no       | [see object](#gid=253326535) |                |
-| bevelRootFace    | object    | no       | [see object](#gid=253326535) |                |
-| depthOfGroove    | object    | no       | [see object](#gid=253326535) |                |
-| radialOffset     | object    | no       | [see object](#gid=253326535) |                |
-| linearWeight     | object    | no       | [see object](#gid=253326535) |                |
-| peaking          | object    | no       | [see object](#gid=253326535) |
-
+| externalDiameter | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| internalDiameter | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| thickness        | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| outOfRoundness   | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| straightness     | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| eccentricity     | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| squareness       | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| weldFLash        | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| weldFlashOutside | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| length           | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| weight           | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| bevelAngle       | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| bevelRootFace    | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| depthOfGroove    | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| radialOffset     | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| linearWeight     | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |                |
+| peaking          | object    | no       | [see object](#dimAcceptanceCriteriaProperties) |
+#### <span id="dimunits">Dimensional Test Units</span>
 | Property name    | Data type | Required | Description           | Allowed values |
 |------------------|-----------|----------|-----------------------|----------------|
 | externalDiameter | string    | no       | units of the property |                |
@@ -116,13 +112,13 @@
 | radialOffset     | string    | no       | units of the property |                |
 | linearWeight     | string    | no       | units of the property |                |
 | peaking          | string    | no       | units of the property |
-
+#### <span id="dimelementproperties">Dimensional Test Element Properties</span>
 | Property name | Data type | Required | Description | Allowed values |
 |---------------|-----------|----------|-------------|----------------|
 | body          | number    | no       |             |                |
 | leftEnd       | number    | no       |             |                |
 | rightEnd      | number    | no       |             |
-
+#### <span id="dimacceptancecriteriaproperties">Dimensional Test Acceptance Criteria Properties</span>
 | Property name  | Data type | Required | Description              | Allowed values |
 |----------------|-----------|----------|--------------------------|----------------|
 | nominal        | number    | no       | nominal acceptance value |                |
@@ -130,11 +126,9 @@
 | tolerancePlus  | number    | no       | tolerance plus value     |
 
 ## Electromagnetic Induction Test (EMI)
-
-### Model
+### Data Model
 [filename](_media/emi.json ':include')
-
-### Description
+### Model Description
 | Property name            | Data type       | Required | Description                                                       | Allowed values                                                                                                                         |
 |--------------------------|-----------------|----------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | client                   | string          | yes      | company name of the company which requested the test              |                                                                                                                                        |
@@ -143,15 +137,22 @@
 | acceptance               | string          | yes      |                                                                   | ["API 5L Table E.8 (46 edition)"] or custom string                                                                                     |
 | surfaceCondition         | string          | no       |                                                                   |                                                                                                                                        |
 | examinedSurface          | array of string | yes      |                                                                   | ["100% of surface","Bevel ends","External surface","Internal surface","Welds"]                                                         |
-| elements                 | array           | yes      | [see elements](#gid=376421336)                                    |                                                                                                                                        |
+| elements                 | array           | yes      | [see elements](#emielement)                                       |                                                                                                                                        |
 | result                   | string          | yes      | test result                                                       | ["No recordable indications","Acceptable indications","Not acceptable"]                                                                |
 | notes                    | string          | no       | some additional notes/remarks about the test lab wants to mention |                                                                                                                                        |
 | overallQuantityInspected | number          | yes      | how many products the certificate has                             |                                                                                                                                        |
 | quantityInspected        | number          | yes      | how many products will be tested in this specific test            |                                                                                                                                        |
 | pieceIdentification      | string          | yes      |                                                                   | ["Single piece", "Heat and lot"]                                                                                                       |
-| examinationConditions    | object          | no       | [see examinationConditions](#gid=1219856979)                      |                                                                                                                                        |
-| file                     | string          | no       | is a path to the file that is served on steeltrace server         |
+| examinationConditions    | object          | no       | [see examinationConditions](#emiexaminactionconditions)                                 |                                                                                                                                        |
 
+#### <span id="emielement">EMI Test Element</span>
+| Property name | Data type | Required | Description                                 | Allowed values |
+|---------------|-----------|----------|---------------------------------------------|----------------|
+| 0             | object    | no       | [see examination condition](#emiexaminactionconditions) |                |
+| 1             | object    | no       | [see examination condition](#emiexaminactionconditions) |                |
+| 2             | object    | no       | [see examination condition](#emiexaminactionconditions) |                |
+| ...           | object    | no       | [see examination condition](#emiexaminactionconditions) |
+#### <span id="emiexaminactionconditions">EMI Test Examination Conditions</span>
 | Property name   | Data type | Required | Description            | Allowed values |
 |-----------------|-----------|----------|------------------------|----------------|
 | notchesLocation | string    | yes      |                        |                |
@@ -160,23 +161,45 @@
 | depth           | number    | yes      |                        |                |
 | depthUnit       | string    | yes      | unit of depth property | ["mm", "%"]    |
 
-| Property name | Data type | Required | Description                                 | Allowed values |
-|---------------|-----------|----------|---------------------------------------------|----------------|
-| 0             | object    | no       | [see examination condition](#gid=958530933) |                |
-| 1             | object    | no       | [see examination condition](#gid=958530933) |                |
-| 2             | object    | no       | [see examination condition](#gid=958530933) |                |
-| ...           | object    | no       | [see examination condition](#gid=958530933) |
-
-| Property name | Data type | Required | Description                                               | Allowed values |
-|---------------|-----------|----------|-----------------------------------------------------------|----------------|
-| file          | string    | no       | is a path to the file that is served on steeltrace server |                |
-| value         | string    | no       |                                                           |
-
 ## Hardness Test
-
-### Model
+### Data Model
 [filename](_media/hardness.json ':include')
+### Model Description
+| Property name    | Data type        | Required                | Description                                                       | Allowed values                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------- | ---------------- | ----------------------- |-------------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| client           | string           | yes                     | company name of the company which requested the test              |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| lab              | string           | yes                     | company name of the laboratory which performs the test            |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| fdpt             | boolean          | no                      |                                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| hardnessTest     | string           | yes                     |                                                                   | ["HBW", "HRC", "HRB", "HV0.5", "HV10"]                                                                                                                                                                                                                                                                                                                                                                                         |
+| norm             | string           | yes                     |                                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| amount           | number           | yes                     | number of hardness positions (elements)                           |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| grade            | string           | yes                     |                                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| elements         | array of objects | yes                     | [see elements](#hardnesselement)                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| max              | number           | required in some grades | global max                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| min              | number           | required in some grades | global min                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| stage            | string           | required in some grades | Manufacturing stage. This changes requirements on some grades     | ["Completed Nuts", "Sample Nut after treatment"]                                                                                                                                                                                                                                                                                                                                                                               |
+| diameter         | string           | required in some grades | Diameter. This changes requirements on some grades                | ["M20 (3/4 in.) and smaller", "Greater than M20 (3/4 in.)", "Up to M36 (1.1/2 in.) included", "Over M36 (1.1/2 in.)", "To M36 (1.1/2 in.) included"]                                                                                                                                                                                                                                                                           |
+| wallThickness    | number           |                         | wall thinkness in mm                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| location         | string           | no                      |                                                                   | ["1/4 Thickness","1/2 Thickness","3/4 Thickness","2 mm from OD","2 mm from ID","Through thickness"]                                                                                                                                                                                                                                                                                                                            |
+| hardnessLocation | string           | yes                     | sample shape                                                      | ["Linear sample", "Circular sample"]                                                                                                                                                                                                                                                                                                                                                                                           |
+| elementsHistory  | array of objects | yes                     | [see elements history](#hardnesselementhistory)                   |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| notes            | string           | no                      | some additional notes/remarks about the test lab wants to mention |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| acceptance       | string           | no                      | itp or qcp name                                                   | ["FP-ITP Rev. 0"] |
+| avgMax           | number           | no                      | maximum in the quadrant                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| avgMin           | number           | no                      | minimum in the quadrant                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| variation        | number           | no                      | variation in the quadrant                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| specimenId       | string           | no                      | id of the specimen                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| result           | string           | yes                     | test result                                                       | ["Acceptable", "Not Acceptable"]                                                                                                                                                                                                                                                                                                                                                                                               |
 
+#### <span id="hardnesselement">Hardness Test Element</span>
+| Property name | Data type | Required | Description                                           | Allowed values |
+| ------------- | --------- | -------- |-------------------------------------------------------| -------------- |
+| id            | number    | yes      | element id in array. start with 0, then 1 etc.        |                |
+| max           | number    | yes      | local max, it can either be equal to global max or no |                |
+| min           | number    | yes      | local min, it can either be equal to global min or no |                |
+| position      | number    | yes      | element position in array. start with 1, then 2 etc.  |                |
+| value         | number    | yes      | hardness result                                       |
+#### <span id="hardnesselementhistory">HIC Test Solution pH</span>
 | Property name | Data type | Required | Description                                                                            | Allowed values |
 | ------------- | --------- | -------- | -------------------------------------------------------------------------------------- | -------------- |
 | differentMax  | number    | no       | maximum in the test zone                                                               |                |
@@ -185,11 +208,9 @@
 | position      | string    | yes      | positions that are included in the test zone divided with comma. example: "1, 2, 3, 4" |
 
 ## Heat Treatment
-
-### Model
+### Data Model
 [filename](_media/heat_treatment.json ':include')
-
-### Description
+### Model Description
 | Property name               | Data type | Required                                                  | Description                                                       | Allowed values                                                                                                                                                           |
 |-----------------------------|-----------|-----------------------------------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | method                      | string    | yes                                                       |                                                                   | ["Single batch furnace", "Localized", "In-line"]                                                                                                                         |
@@ -221,56 +242,49 @@
 | coolingRateUnits            | string    | required if coolingRateMin or coolingRateMax is not empty |                                                                   |                                                                                                                                                                          |
 | notes                       | string    | no                                                        | some additional notes/remarks about the test lab wants to mention |                                                                                                                                                                          |
 | strainHardening             | boolean   | no                                                        |                                                                   | [true, false]                                                                                                                                                            |
-| images                      | array     | [see images](#gid=19352338)                               |                                                                   |
-
-| Property name | Data type | Required | Description                                               | Allowed values |
-|---------------|-----------|----------|-----------------------------------------------------------|----------------|
-| preview       | boolean   | yes      |                                                           |                |
-| preview_path  | string    | yes      | is a path to the file that is served on steeltrace server |
 
 ## Hydrogen Induced Cracking Test (HIC)
-
-### Model
+### Data Model
 [filename](_media/hic.json ':include')
-
-### Description
-| Property name        | Data type | Required | Description                                                       | Allowed values                                                                     |
-|----------------------|-----------|----------|-------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| client               | string    | yes      | company name of the company which requested the test              |                                                                                    |
-| lab                  | string    | yes      | company name of the laboratory which performs the test            |                                                                                    |
-| testStandard         | string    | yes      |                                                                   | ["NACE TM0284 (2016)","API 5L Annex H, clause H 7.2.2 / H.7.3.1"] or custom string |
-| acceptance           | string    | yes      |                                                                   | ["ISO 15156-2 (2015) - NACE MR0175 Table B.3", "FP-ITP Rev. 0"] or custom string   |
-| sampleID             | string    | yes      | ?                                                                 |                                                                                    |
-| solution             | string    | yes      |                                                                   |                                                                                    |
-| duration             | number    | yes      | test duration in hrs                                              |                                                                                    |
-| temperature          | number    | yes      | test temperature in celsius                                       |                                                                                    |
-| temperatureTolerance | number    | yes      | test temperature tolerance in celsius                             |                                                                                    |
-| pressure             | number    | yes      | test pressure in bar                                              |                                                                                    |
-| gasMixture           | string    | no       |                                                                   |                                                                                    |
-| solutionPH           | object    | yes      | [see solutionPH](#gid=1794995702)                                 |                                                                                    |
-| h2sConcentration     | object    | yes      | [see h2sConsentration](#gid=1492654674)                           |                                                                                    |
-| requirements         | object    | no       | [see requirements](#gid=1634544984)                               | global requirements                                                                |
-| elements             | array     | yes      | [see elements](#gid=106534246)                                    |                                                                                    |
+### Model Description
+| Property name        | Data type | Required | Description                                                      | Allowed values                                                                     |
+|----------------------|-----------|----------|------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| client               | string    | yes      | company name of the company which requested the test             |                                                                                    |
+| lab                  | string    | yes      | company name of the laboratory which performs the test           |                                                                                    |
+| testStandard         | string    | yes      |                                                                  | ["NACE TM0284 (2016)","API 5L Annex H, clause H 7.2.2 / H.7.3.1"] or custom string |
+| acceptance           | string    | yes      |                                                                  | ["ISO 15156-2 (2015) - NACE MR0175 Table B.3", "FP-ITP Rev. 0"] or custom string   |
+| sampleID             | string    | yes      | ?                                                                |                                                                                    |
+| solution             | string    | yes      |                                                                  |                                                                                    |
+| duration             | number    | yes      | test duration in hrs                                             |                                                                                    |
+| temperature          | number    | yes      | test temperature in celsius                                      |                                                                                    |
+| temperatureTolerance | number    | yes      | test temperature tolerance in celsius                            |                                                                                    |
+| pressure             | number    | yes      | test pressure in bar                                             |                                                                                    |
+| gasMixture           | string    | no       |                                                                  |                                                                                    |
+| solutionPH           | object    | yes      | [see solutionPH](#hicsolutionph)                                 |                                                                                    |
+| h2sConcentration     | object    | yes      | [see h2sConcentration](#hich2sconcentration)                     |                                                                                    |
+| requirements         | object    | no       | [see requirements](#hicrequirements)                             | global requirements                                                                |
+| elements             | array     | yes      | [see elements](#hicelement)                                      |                                                                                    |
 | notes                | string    | no       | some additional notes/remarks about the test lab wants to mention |                                                                                    |
-| result               | string    | yes      | test result                                                       | ["Acceptable", "Not Acceptable"]                                                   |
+| result               | string    | yes      | test result                                                      | ["Acceptable", "Not Acceptable"]                                                   |
 
+#### <span id="hicsolutionph">HIC Test Solution pH</span>
 | Property name | Data type | Required | Description |
 |---------------|-----------|----------|-------------|
 | before        | string    | yes      |             |
 | after         | string    | yes      |             |
 | final         | string    | yes      |
-
+#### <span id="hich2sconcentration">HIC Test H2S Concentration</span>
 | Property name | Data type | Required | Description |
 |---------------|-----------|----------|-------------|
 | initial       | string    | yes      |             |
 | final         | string    | yes      |
-
+#### <span id="hicrequirements">HIC Test Requirements</span>
 | Property name            | Data type | Required | Description | Allowed values |
 |--------------------------|-----------|----------|-------------|----------------|
 | crackLengthRatioMax      | number    | no       |             |                |
 | crackThicknessRatioMax   | number    | no       |             |                |
 | crackSensitivityRatioMax | number    | no       |             |
-
+#### <span id="hicelement">HIC Test Element</span>
 | Property name         | Data type | Required                                                 | Description                                              | Allowed values |
 |-----------------------|-----------|----------------------------------------------------------|----------------------------------------------------------|----------------|
 | position              | string    | no                                                       |                                                          |                |
@@ -280,48 +294,46 @@
 | specimenWidth         | number    | yes                                                      | in mm                                                    |                |
 | specimenThickness     | number    | yes                                                      | in mm                                                    |                |
 | controlSample         | boolean   | no                                                       |                                                          |                |
-| requirements          | object    | no                                                       | [see requirements](#gid=1634544984) (local requirements) |                |
+| requirements          | object    | no                                                       | [see requirements](#hicrequirements) (local requirements) |                |
 | crackLengthRatio      | number    | required if requirements.crackLengthRatioMax is set      | in %                                                     |                |
 | crackThicknessRatio   | number    | required if requirements.crackThicknessRatioMax is set   | in %                                                     |                |
 | crackSensitivityRatio | number    | required if requirements.crackSensitivityRatioMax is set | in %                                                     |
 
 ## Impact Test
-
-### Model
+### Data Model
 [filename](_media/impact.json ':include')
-
-### Description
-| Property name   | Data type        | Required                                | Description                                                       | Allowed values                                           |
-|-----------------|------------------|-----------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------|
-| client          | string           | yes                                     | company name of the company which requested the test              |                                                          |
-| lab             | string           | yes                                     | company name of the laboratory which performs the test            |                                                          |
-| fdpt            | boolean          | no                                      |                                                                   |                                                          |
-| notch           | string           | yes                                     |                                                                   | ["KV", "KU"]                                             |
-| radius          | string           | yes                                     | striker radius                                                    | ["2 mm", "8 mm"]                                         |
-| width           | number           | yes                                     | width in mm                                                       |                                                          |
-| height          | number           | yes                                     | height in mm                                                      | [10, 7.5, 6.67, 5, 3.33, 2.5]                            |
-| outsideDiameter | number           | is required in some grades              | outside diameter in mm                                            |                                                          |
-| thickness       | number           | is required in some grades              | final product thickness in mm                                     |                                                          |
-| elements        | array of objects | yes                                     | [see element](#gid=354994940)                                     |                                                          |
-| norm            | string           | yes                                     |                                                                   |                                                          |
-| grade           | string           | yes                                     |                                                                   |                                                          |
-| temperature     | number           | is required if impactTestCurve is false |                                                                   |                                                          |
-| testStandard    | string           | yes                                     |                                                                   | ["ASTM E23 (2018)", "ISO 148-1 (2016)"] or custom string |
-| acceptance      | string           | no                                      | itp or qcp name                                                   | ["FP-ITP Rev. 0"]                                        |
-| result          | string           | yes                                     | test result                                                       | ["Acceptable", "Not Acceptable"]                         |
-| unit            | string           | yes                                     | temperature unit, "celsius" is a default value                    | ["celsius", "fahrenheit"]                                |
+### Model Description
+| Property name   | Data type        | Required                                | Description                                                      | Allowed values                                           |
+|-----------------|------------------|-----------------------------------------|------------------------------------------------------------------|----------------------------------------------------------|
+| client          | string           | yes                                     | company name of the company which requested the test             |                                                          |
+| lab             | string           | yes                                     | company name of the laboratory which performs the test           |                                                          |
+| fdpt            | boolean          | no                                      |                                                                  |                                                          |
+| notch           | string           | yes                                     |                                                                  | ["KV", "KU"]                                             |
+| radius          | string           | yes                                     | striker radius                                                   | ["2 mm", "8 mm"]                                         |
+| width           | number           | yes                                     | width in mm                                                      |                                                          |
+| height          | number           | yes                                     | height in mm                                                     | [10, 7.5, 6.67, 5, 3.33, 2.5]                            |
+| outsideDiameter | number           | is required in some grades              | outside diameter in mm                                           |                                                          |
+| thickness       | number           | is required in some grades              | final product thickness in mm                                    |                                                          |
+| elements        | array of objects | yes                                     | [see element](#impactelement)                                    |                                                          |
+| norm            | string           | yes                                     |                                                                  |                                                          |
+| grade           | string           | yes                                     |                                                                  |                                                          |
+| temperature     | number           | is required if impactTestCurve is false |                                                                  |                                                          |
+| testStandard    | string           | yes                                     |                                                                  | ["ASTM E23 (2018)", "ISO 148-1 (2016)"] or custom string |
+| acceptance      | string           | no                                      | itp or qcp name                                                  | ["FP-ITP Rev. 0"]                                        |
+| result          | string           | yes                                     | test result                                                      | ["Acceptable", "Not Acceptable"]                         |
+| unit            | string           | yes                                     | temperature unit, "celsius" is a default value                   | ["celsius", "fahrenheit"]                                |
 | notes           | string           | no                                      | some additional notes/remarks about the test lab wants to mention |                                                          |
-| impactTestCurve | boolean          | no                                      | true means that impact test curve will be drawn                   |                                                          |
-| requirements    | object           | no                                      | [see requirements](#gid=87059542)                                 |                                                          |
-| file            | string           |                                         | is a path to the file that is served on steeltrace server         |
+| impactTestCurve | boolean          | no                                      | true means that impact test curve will be drawn                  |                                                          |
+| requirements    | object           | no                                      | [see requirements](#impactrequirement)                           |                                                          |
 
-| Property name | Data type | Required | Description                 | Allowed values |
-|---------------|-----------|----------|-----------------------------|----------------|
-| longitudinal  | object    | no       | [see object](#gid=91554620) |                |
-| transverse    | object    | no       | [see object](#gid=91554620) |                |
-| tangential    | object    | no       | [see object](#gid=91554620) |                |
-| radial        | object    | no       | [see object](#gid=91554620) |
-
+#### <span id="impactrequirement">Impact Test Requirement</span>
+| Property name | Data type | Required | Description                                | Allowed values |
+|---------------|-----------|----------|--------------------------------------------|----------------|
+| longitudinal  | object    | no       | [see object](#impactrequirementproperties) |                |
+| transverse    | object    | no       | [see object](#impactrequirementproperties)                |                |
+| tangential    | object    | no       | [see object](#impactrequirementproperties)                |                |
+| radial        | object    | no       | [see object](#impactrequirementproperties)                |
+#### <span id="impactrequirementproperties">Impact Test Requirement Properties</span>
 | Property name           | Data type | Required | Description                                    | Allowed values                                         |
 |-------------------------|-----------|----------|------------------------------------------------|--------------------------------------------------------|
 | average                 | number    | yes      | absorbed energy average min                    |                                                        |
@@ -334,7 +346,7 @@
 | singleShearArea         | number    | no       | shear area min                                 |                                                        |
 | temperature             | number    | yes      |                                                |                                                        |
 | unit                    | string    | yes      | temperature unit, "celsius" is a default value | ["celsius", "fahrenheit"]                              |
-
+#### <span id="impactelement">Impact Test Element</span>
 | Property name     | Data type | Required                                          | Description        | Allowed values                                                                                                                                                                          |
 |-------------------|-----------|---------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | laboratory        | string    | yes                                               | id of the specimen |                                                                                                                                                                                         |
@@ -354,11 +366,9 @@
 | shearArea3        | number    | is required in some grades                        |                    |
 
 ## Sulphide Stress Corrosion Cracking Test (SSCC)
-
-### Model
+### Data Model
 [filename](_media/sscc.json ':include')
-
-### Description
+### Model Description
 | Property name           | Data type | Required | Description                                                       | Allowed values                                                                                                             |
 |-------------------------|-----------|----------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | client                  | string    | yes      | company name of the company which requested the test              |                                                                                                                            |
@@ -371,28 +381,29 @@
 | temperatureTolerance    | number    | yes      | in celsius                                                        |                                                                                                                            |
 | pressure                | number    | yes      | in bar                                                            |                                                                                                                            |
 | gasMixture              | string    | no       |                                                                   |                                                                                                                            |
-| solutionPH              | object    | yes      | [see solutionPH](#gid=1036266614)                                 |                                                                                                                            |
-| h2sConcentration        | object    | yes      | [see h2sConsentration](#gid=247307627)                            |                                                                                                                            |
+| solutionPH              | object    | yes      | [see solutionPH](#ssccsolutionph)                                 |                                                                                                                            |
+| h2sConcentration        | object    | yes      | [see h2sConsentration](#sscch2sconcentration)                     |                                                                                                                            |
 | stressMethod            | string    | yes      |                                                                   | ["Uniaxial Tensile testing","Bent Beam testing","C-Ring testing","Double Cantilever Beam (DCB) test","Four Point Bend test"] |
 | yeildStrengthType       | string    | yes      |                                                                   | ["Actual","Specified"]                                                                                                     |
 | yeildStrengthValue      | number    | yes      | in MPa                                                            |                                                                                                                            |
 | yeildStrengthPercentage | number    | yes      | in %                                                              |                                                                                                                            |
 | appliedLoad             | number    | no       | applied stress in MPa                                             |                                                                                                                            |
-| elements                | array     | yes      | [see element](#gid=731961699)                                     |                                                                                                                            |
+| elements                | array     | yes      | [see element](#ssccelement)                                       |                                                                                                                            |
 | notes                   | string    | no       | some additional notes/remarks about the test lab wants to mention |                                                                                                                            |
 | result                  | string    | yes      | test result                                                       | ["Acceptable", "Not Acceptable"]                                                                                           |
-
+#### <span id="ssccsolutionph">SSCC Test Solution pH</span>
 | Property name | Data type | Required | Description | Allowed values |
 |---------------|-----------|----------|-------------|----------------|
 | before        | number    | yes      |             |                |
 | after         | number    | yes      |             |                |
 | final         | number    | yes      |             |
-
+#### <span id="sscch2sconcentration">SSCC Test H2S Concentration</span>
 | Property name | Data type | Required | Description | Allowed values |
 |---------------|-----------|----------|-------------|----------------|
 | initial       | number    | yes      | in ppm      |                |
 | final         | number    | yes      | in ppm      |
 
+#### <span id="ssccelement">SSCC Test Element</span>
 | Property name     | Data type       | Required | Description                                               | Allowed values                     |
 |-------------------|-----------------|----------|-----------------------------------------------------------|------------------------------------|
 | position          | string          | yes      |                                                           |                                    |
@@ -403,14 +414,11 @@
 | specimenThickness | number          | yes      | in mm                                                     |                                    |
 | magnification     | number          | no       |                                                           |                                    |
 | evaluationOfCraks | string          | yes      |                                                           | ["Absent (PASS)","Present (FAIL)"] |
-| files             | array of string | no       | is a path to the file that is served on steeltrace server |
 
 ## Tensile Test
-
-### Model
+### Data Model
 [filename](_media/tensile.json ':include')
-
-### Description
+### Model Description
 | Property name | Data type        | Required | Description                                                           | Allowed values                                                                                                                  |
 |---------------|------------------|----------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | client        | string           | yes      | company name of the company which requested the test                  |                                                                                                                                 |
@@ -422,10 +430,10 @@
 | testStandard  | string           | yes      |                                                                       | ["ASTM A370 (2020)","ASTM A370 (2021)","ASTM E8 (2021)","ASTM E21 (2020)","ISO 6892-1:2019","ISO 6892-2:2018"] or custom string |
 | result        | string           | yes      | test result                                                           | ["Acceptable", "Not Acceptable"]                                                                                                |
 | acceptance    | string           | no       | itp or qcp name                                                       | ["FP-ITP Rev. 0"]                                                                                                               |
-| elements      | array of objects | yes      | [see elements](#gid=116844094)                                        |                                                                                                                                 |
+| elements      | array of objects | yes      | [see elements](#tensileelement)                                       |                                                                                                                                 |
 | notes         | string           | no       | some additional notes/remarks about the test lab wants to mention     |                                                                                                                                 |
-| files         | array of string  | no       | each string is a path to the file that is served on steeltrace server |
 
+#### <span id="tensileelement">Tensile Test Element</span>
 | Property name        | Data type | Required                                                        | Description                                                                        | Allowed values                                                                                            |
 |----------------------|-----------|-----------------------------------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | position             | string    | yes                                                             |                                                                                    | ["1/4 thickness","1/2 thickness","3/4 thickness","2 mm from inside","2 mm from outside","full thickness"] |
@@ -445,8 +453,8 @@
 | a                    | number    | is required in some grades                                      | elongation                                                                         |                                                                                                           |
 | reductionOfArea      | number    | is required in some grades                                      | reduction of area                                                                  |                                                                                                           |
 | uniformElongation    | number    | is required in some grades                                      | uniform elongation                                                                 |                                                                                                           |
-| requirements         | object    | no                                                              | [see requirements](#gid=1621204917)                                                |
-
+| requirements         | object    | no                                                              | [see requirements](#tensilerequirement)                                            |
+#### <span id="tensilerequirement">Tensile Test Requirement</span>
 | Property name        | Data type | Required                   | Description             | Allowed values |
 |----------------------|-----------|----------------------------|-------------------------|----------------|
 | yeldMin              | number    | is required in some grades | yield strength min      |                |
@@ -459,45 +467,42 @@
 | uniformElongationMin | number    | is required in some grades | uniform elongation min  |
 
 ## Ultrasonic Test
-
-### Model
+### Data Model
 [filename](_media/ultrasonic.json ':include')
-
-### Description
-| Property name            | Data type | Required | Description                                               | Allowed values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|--------------------------|-----------|----------|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| client                   | string    | yes      | company name of the company which requested the test      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| lab                      | string    | yes      | company name of the laboratory which performs the test    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| testStandard             | string    | yes      |                                                           | [<br>"ASME V Article 4 (2021)",<br>"ASME V Article 5 (2021)",<br>"API 5L Table E.7 (46 edition)",<br>"ASTM A388 (2019)",<br>"ASTM A745 (2020)",<br>"ASTM B594 (2019e1)",<br>"ASTM E213 (2020)",<br>"ASTM A435 (2017)",<br>"ASTM A578 (2017)",<br>"EN 10160 (1999)",<br>"EN 10306 (2001)",<br>"EN 10308 (2001)",<br>"ISO 10893-8 (2011/Amd1:2020)",<br>"ISO 10893-9 (2011/Amd1:2020)",<br>"ISO 10893-10 (2011/Amd1:2020)",<br>"EN 10228-3 (2016)"<br>]                                                                                                                                                                                                                                                                           |
-| acceptance               | string    | yes      |                                                           | [<br>"ASME VIII Division 2 Paragraph 3.3.4 (2021)",<br>"API 5L Table E.8 (46 edition)",<br>"EN 10228-3 Class 1 (2016)",<br>"EN 10228-3 Class 2 (2016)",<br>"EN 10228-3 Class 3 (2016)",<br>"EN 10228-3 Class 4 (2016)",<br>"ISO 10893-8 Level U0 (2011/Amd1:2020)",<br>"ISO 10893-8 Level U1 (2011/Amd1:2020)",<br>"ISO 10893-8 Level U2 (2011/Amd1:2020)",<br>"ISO 10893-8 Level U3 (2011/Amd1:2020)",<br>"ASTM A745 QL-1 (2020)",<br>"ASTM A745 QL-2 (2020)",<br>"ASTM A745 QL-3 (2020)",<br>"ASTM A745 QL-4 (2020)",<br>"ASTM A745 QL-5 (2020)",<br>"ASTM B594 Class AAA (2019e1)",<br>"ASTM B594 Class AA (2019e1)",<br>"ASTM B594 Class A (2019e1)",<br>"ASTM B594 Class B (2019e1)",<br>"ASTM B594 Class C (2019e1)"<br>] |
-| surfacePreparation       | string    | no       | surface condition                                         | ["As rolled", "As forged", "As welded", "Sandblasted", "Machined"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| surfaceRoughness         | number    | no       | in μm                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| result                   | string    | yes      |                                                           | ["No indication", "Acceptable indications", "Not acceptable indications"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| examination              | object    | no       | [see examination conditions](#gid=1839661012)             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| elements                 | array     | yes      | [see elements](#gid=634221726)                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| overallQuantityInspected | number    | yes      | how many products the certificate has                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| quantityInspected        | number    | yes      | how many products will be tested in this specific test    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| pieceIdentification      | string    | yes      |                                                           | ["Single piece", "Heat and lot"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| examinationConditions    | object    | no       | [see examinationConditions](#gid=400286962)               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| file                     | string    | no       | is a path to the file that is served on steeltrace server |
-
+### Model Description
+| Property name            | Data type | Required | Description                                                    | Allowed values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------|-----------|----------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| client                   | string    | yes      | company name of the company which requested the test           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| lab                      | string    | yes      | company name of the laboratory which performs the test         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| testStandard             | string    | yes      |                                                                | [<br>"ASME V Article 4 (2021)",<br>"ASME V Article 5 (2021)",<br>"API 5L Table E.7 (46 edition)",<br>"ASTM A388 (2019)",<br>"ASTM A745 (2020)",<br>"ASTM B594 (2019e1)",<br>"ASTM E213 (2020)",<br>"ASTM A435 (2017)",<br>"ASTM A578 (2017)",<br>"EN 10160 (1999)",<br>"EN 10306 (2001)",<br>"EN 10308 (2001)",<br>"ISO 10893-8 (2011/Amd1:2020)",<br>"ISO 10893-9 (2011/Amd1:2020)",<br>"ISO 10893-10 (2011/Amd1:2020)",<br>"EN 10228-3 (2016)"<br>]                                                                                                                                                                                                                                                                           |
+| acceptance               | string    | yes      |                                                                | [<br>"ASME VIII Division 2 Paragraph 3.3.4 (2021)",<br>"API 5L Table E.8 (46 edition)",<br>"EN 10228-3 Class 1 (2016)",<br>"EN 10228-3 Class 2 (2016)",<br>"EN 10228-3 Class 3 (2016)",<br>"EN 10228-3 Class 4 (2016)",<br>"ISO 10893-8 Level U0 (2011/Amd1:2020)",<br>"ISO 10893-8 Level U1 (2011/Amd1:2020)",<br>"ISO 10893-8 Level U2 (2011/Amd1:2020)",<br>"ISO 10893-8 Level U3 (2011/Amd1:2020)",<br>"ASTM A745 QL-1 (2020)",<br>"ASTM A745 QL-2 (2020)",<br>"ASTM A745 QL-3 (2020)",<br>"ASTM A745 QL-4 (2020)",<br>"ASTM A745 QL-5 (2020)",<br>"ASTM B594 Class AAA (2019e1)",<br>"ASTM B594 Class AA (2019e1)",<br>"ASTM B594 Class A (2019e1)",<br>"ASTM B594 Class B (2019e1)",<br>"ASTM B594 Class C (2019e1)"<br>] |
+| surfacePreparation       | string    | no       | surface condition                                              | ["As rolled", "As forged", "As welded", "Sandblasted", "Machined"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| surfaceRoughness         | number    | no       | in μm                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| result                   | string    | yes      |                                                                | ["No indication", "Acceptable indications", "Not acceptable indications"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| examination              | object    | no       | [see examination conditions](#ultrasonicexaminationconditions) |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| elements                 | array     | yes      | [see elements](#ultrasonicelement)                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| overallQuantityInspected | number    | yes      | how many products the certificate has                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| quantityInspected        | number    | yes      | how many products will be tested in this specific test         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| pieceIdentification      | string    | yes      |                                                                | ["Single piece", "Heat and lot"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| examinationConditions    | object    | no       | [see examinationConditions](#ultrasonicexaminationconditions)                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+#### <span id="ultrasonicexaminationconditions">Ultrasonic Test Examination Conditions</span>
 | Property name | Data type | Required | Description                   | Allowed values |
 |---------------|-----------|----------|-------------------------------|----------------|
 | speed         | number    | no       | scanning speed in mm/s        |                |
 | gel           | string    | no       | couplant gel                  |                |
 | overlap       | number    | no       | scanning overlap minimum in % |
-
-| Property name | Data type | Required | Description                     | Allowed values |
-|---------------|-----------|----------|---------------------------------|----------------|
-| technique     | object    | no       | [see technique](#gid=863857098) |                |
-| probes        | object    | no       | [see probes](#gid=459282034)    |
-
+#### <span id="ultrasonicelement">Ultrasonic Test Element</span>
+| Property name | Data type | Required | Description                                  | Allowed values |
+|---------------|-----------|----------|----------------------------------------------|----------------|
+| technique     | object    | no       | [see technique](#ultrasonicelementtechnique) |                |
+| probes        | object    | no       | [see probes](#ultrasonicelementprobe)        |
+#### <span id="ultrasonicelementtechnique">Tensile Test Element Technique</span>
 | Property name | Data type       | Required | Description    | Allowed values                                                                             |
 |---------------|-----------------|----------|----------------|--------------------------------------------------------------------------------------------|
 | technique     | string          | no       |                | ["Impulse echo - Reflection method", "Through transmission method", "Phased Array"]        |
 | sensitivity   | string          | no       |                | ["Back wall echo", "DAC curve", "AVG diagram"]                                             |
 | volume        | array of string | no       | scenned volume | ["100% of volume", "Welds", "Weld seam", "Bevel ends", "Weld overlay", "150 mm from ends"] |
-
+#### <span id="ultrasonicelementprobe">Tensile Test Element Probe</span>
 | Property name | Data type | Required | Description     | Allowed values                  |
 |---------------|-----------|----------|-----------------|---------------------------------|
 | waves         | string    | no       |                 | ["Straight beam", "Angle beam"] |
@@ -505,16 +510,4 @@
 | model         | string    | no       | brand and model |                                 |
 | size          | number    | no       | in mm           |                                 |
 | frequency     | number    | no       | in MHz          |                                 |
-| calibration   | string    | no       |                 |
-
-| Property name | Data type | Required | Description                                  | Allowed values |
-|---------------|-----------|----------|----------------------------------------------|----------------|
-| 0             | object    | no       | [see examination condition](#gid=1024497525) |                |
-| 1             | object    | no       | [see examination condition](#gid=1024497525) |                |
-| 2             | object    | no       | [see examination condition](#gid=1024497525) |                |
-| ...           | object    | no       | [see examination condition](#gid=1024497525) |
-
-| Property name | Data type | Required | Description                                               | Allowed values |
-|---------------|-----------|----------|-----------------------------------------------------------|----------------|
-| file          | string    | no       | is a path to the file that is served on steeltrace server |                |
-| value         | string    | no       |                                                           |
+| calibration   | string    | no       |                 |                                 |

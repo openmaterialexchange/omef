@@ -31,8 +31,7 @@
     "specimenWidth": "number",
     "specimenThickness": "number",
     "magnification": "number",
-    "evaluationOfCraks": "string",
-    "files": ["string"]
+    "evaluationOfCraks": "string"
   }],
   "notes": "string",
   "result": "string"

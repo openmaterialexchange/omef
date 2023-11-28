@@ -39,6 +39,5 @@
     }
   ],
   "notes": "string",
-  "files": ["string"],
   "result": "string"
 }

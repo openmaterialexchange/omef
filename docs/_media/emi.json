@@ -19,9 +19,7 @@
   "pieceIdentification": "string",
   "examinationConditions": {
     "0": {
-      "file": "string",
       "value": "string"
     }
-  },
-  "file": "string"
+  }
 }
