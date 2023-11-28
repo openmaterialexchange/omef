@@ -404,16 +404,16 @@
 | final         | number    | yes      | in ppm      |
 
 #### <span id="ssccelement">SSCC Test Element</span>
-| Property name     | Data type       | Required | Description                                               | Allowed values                     |
-|-------------------|-----------------|----------|-----------------------------------------------------------|------------------------------------|
-| position          | string          | yes      |                                                           |                                    |
-| orientation       | string          | yes      |                                                           |                                    |
-| specimenId        | string          | yes      |                                                           |                                    |
-| specimenLength    | number          | yes      | in mm                                                     |                                    |
-| specimenWidth     | number          | yes      | in mm                                                     |                                    |
-| specimenThickness | number          | yes      | in mm                                                     |                                    |
-| magnification     | number          | no       |                                                           |                                    |
-| evaluationOfCraks | string          | yes      |                                                           | ["Absent (PASS)","Present (FAIL)"] |
+| Property name      | Data type       | Required | Description                                               | Allowed values                     |
+|--------------------|-----------------|----------|-----------------------------------------------------------|------------------------------------|
+| position           | string          | yes      |                                                           |                                    |
+| orientation        | string          | yes      |                                                           |                                    |
+| specimenId         | string          | yes      |                                                           |                                    |
+| specimenLength     | number          | yes      | in mm                                                     |                                    |
+| specimenWidth      | number          | yes      | in mm                                                     |                                    |
+| specimenThickness  | number          | yes      | in mm                                                     |                                    |
+| magnification      | number          | no       |                                                           |                                    |
+| evaluationOfCracks | string          | yes      |                                                           | ["Absent (PASS)","Present (FAIL)"] |
 
 ## Tensile Test
 ### Data Model
