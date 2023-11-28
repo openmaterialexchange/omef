@@ -1,6 +1,6 @@
-<img src="_media/logo.png" alt="drawing" style="width: 100px; margin: 0 auto; display: block;" />
+## Open Material Exchange Format
 
-* [Home](/)
+* [Get Started](#welcome-to-omef-open-material-echange-format)
 * [Whitepaper](whitepaper.md)
-* [Models](models.md)
+* [Data Models](models.md)
 * [License](license.md)
